@@ -14,7 +14,7 @@
     <!-- Custom fonts for this template-->
     <link href="{{asset('template/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        href="{{asset('template/css/font.css')}}""
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -22,6 +22,7 @@
 
     <!-- Custom styles for this page -->
     <link href="{{asset('template/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link href="{{asset('template/css/select2.min.css')}}" rel="stylesheet">
 
     @yield('style')
 
@@ -56,6 +57,21 @@
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
+                <div class="sidebar-heading">
+                    Admin Menu
+                </div>
+
+                <!-- Nav Item - User -->
+                <li class="nav-item">
+                    {{-- <a class="nav-link" href="{{ route('user.index') }}"> --}}
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-user"></i>
+                        <span>User</span>
+                    </a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
 
                 
 
@@ -75,17 +91,17 @@
                     </a>
                 </li>
 
-                {{-- <!-- Nav Item - Aturan -->
+                <!-- Nav Item - Aturan -->
                 <li class="nav-item {{ (request()->is('aturan*')) ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('aturan') }}">
+                    <a class="nav-link" href="{{ route('aturan.index') }}">
                         <i class="fas fa-fw fa-book"></i>
                         <span>Aturan</span>
                     </a>
-                </li> --}}
+                </li>
 
                 <!-- Nav Item - Diagnosa -->
                 <li class="nav-item {{ request()->is('diagnosa*') ? 'active' : '' }}">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{route('diagnosa.index')}}">
                         <i class="fas fa-fw fa-stethoscope"></i>
                         <span>Diagnosa</span>
                     </a>
@@ -246,6 +262,8 @@
     <!-- Page level plugins -->
     <script src="{{asset('template/vendor/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('template/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('template/js/select2.full.min.js')}}"></script>
+    
 
     @yield('script')
 

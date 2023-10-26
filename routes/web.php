@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AturanController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\DiagnosaController;
 use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\PenyakitController;
 use Illuminate\Support\Facades\Route;
@@ -26,5 +28,9 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 Route::resource('penyakit', PenyakitController::class);
 
 Route::resource('gejala', GejalaController::class);
+
+Route::resource('aturan', AturanController::class);
+
+Route::get('/diagnosa', [DiagnosaController::class,'index'])->name('diagnosa.index');
 
 

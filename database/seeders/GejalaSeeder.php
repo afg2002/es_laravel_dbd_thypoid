@@ -16,31 +16,36 @@ class GejalaSeeder extends Seeder
         $data = [
             [
                 'kode_gejala' => 'G01',
+                'nama_gejala' => 'Demam',
+                'deskripsi' => 'Suhu tubuh melebihi 37,5 Derajat Celcius.',
+            ],
+            [
+                'kode_gejala' => 'G02',
                 'nama_gejala' => 'Nyeri Kepala dan Mialgia',
                 'deskripsi' => 'Kepala pusing, mual, muntah dan tidak memiliki nafsu makan',
             ],
             [
-                'kode_gejala' => 'G02',
+                'kode_gejala' => 'G03',
                 'nama_gejala' => 'Perut kembung, menderita obstipasi ataupun diare',
                 'deskripsi' => 'Mengalami pendarahan pada gusi, Hematemesis ataupun meledak',
             ],
             [
-                'kode_gejala' => 'G03',
+                'kode_gejala' => 'G04',
                 'nama_gejala' => 'Mengalami epistaksis (mimisan)',
                 'deskripsi' => 'Mimisan adalah kondisi dimana darah keluar dari hidung. Gejala ini dapat terjadi pada penderita DBD.',
             ],
             [
-                'kode_gejala' => 'G04',
+                'kode_gejala' => 'G05',
                 'nama_gejala' => 'Nyeri retro-orbital (belakang mata) dan artralgia (otot)',
                 'deskripsi' => 'Penderita mengalami nyeri di belakang mata dan otot-ototnya.',
             ],
             [
-                'kode_gejala' => 'G05',
+                'kode_gejala' => 'G06',
                 'nama_gejala' => 'Kepala pusing',
                 'deskripsi' => 'Penderita merasa pusing atau pening.',
             ],
             [
-                'kode_gejala' => 'G06',
+                'kode_gejala' => 'G07',
                 'nama_gejala' => 'Mengalami gangguan mental (menurunnya tingkat kesadaran)',
                 'deskripsi' => 'Penderita mengalami penurunan kesadaran atau gangguan mental lainnya.',
             ],
@@ -68,6 +73,16 @@ class GejalaSeeder extends Seeder
                 'kode_gejala' => 'K05',
                 'nama_gejala' => 'Uji Bendung Positif',
                 'deskripsi' => 'Hasil uji bendung pada penderita DBD positif, menunjukkan adanya perdarahan kecil di bawah kulit.',
+            ],
+            [
+                'kode_gejala' => 'K06',
+                'nama_gejala' => 'Efusi Pleura',
+                'deskripsi' => 'Penumpukan cairan di antara jaringan yang melapisi paru-paru dan dada.',
+            ],
+            [
+                'kode_gejala' => 'K07',
+                'nama_gejala' => 'Hepatomegali',
+                'deskripsi' => 'Pembengkakan hati.',
             ],
             [
                 'kode_gejala' => 'L01',

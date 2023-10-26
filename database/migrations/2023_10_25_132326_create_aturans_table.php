@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('aturan', function (Blueprint $table) {
-            $table->string('kode_aturan')->unique();
+            $table->id();
             $table->string('kode_penyakit');
             $table->string('kode_gejala');
             $table->string('hasil_lab');
@@ -21,9 +21,6 @@ return new class extends Migration
 
             // Tambahkan indeks asing ke tabel penyakit dan gejala
             $table->foreign('kode_penyakit')->references('kode_penyakit')->on('penyakit');
-            $table->foreign('kode_gejala')->references('kode_gejala')->on('gejala');
-            $table->foreign('hasil_lab')->references('kode_gejala')->on('gejala');
-            $table->foreign('kode_gejalaPD')->references('kode_gejala')->on('gejala');
         });
     }
 
