@@ -26,26 +26,38 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode_gejala' => 'G03',
-                'nama_gejala' => 'Perut kembung, menderita obstipasi ataupun diare',
-                'deskripsi' => 'Mengalami pendarahan pada gusi, Hematemesis ataupun meledak',
+                'nama_gejala' => 'Kepala pusing, mual, muntah dan tidak memiliki nafsu makan',
+                'deskripsi' => 'Mengalami kepala pusing dan tidak nafsu makan',
             ],
             [
                 'kode_gejala' => 'G04',
+                'nama_gejala' => 'Perut kembung, menderita obstipasi ataupun diare',
+                'deskripsi' => 'Mengalami pendarahan pada gusi, Hematemesis ataupun meledak',
+            ],
+            
+            [
+                'kode_gejala' => 'G05',
+                'nama_gejala' => 'Mengalami pendarahan pada gusi, Hematemesis ataupun melena',
+                'deskripsi' => 'Mengalami pendarah pada gusi dan muntahan isi lambung bercampur darah, atau regurgitasi darah saja.',
+            ],
+            [
+                'kode_gejala' => 'G06',
                 'nama_gejala' => 'Mengalami epistaksis (mimisan)',
                 'deskripsi' => 'Mimisan adalah kondisi dimana darah keluar dari hidung. Gejala ini dapat terjadi pada penderita DBD.',
             ],
+            
             [
-                'kode_gejala' => 'G05',
+                'kode_gejala' => 'G07',
                 'nama_gejala' => 'Nyeri retro-orbital (belakang mata) dan artralgia (otot)',
                 'deskripsi' => 'Penderita mengalami nyeri di belakang mata dan otot-ototnya.',
             ],
             [
-                'kode_gejala' => 'G06',
+                'kode_gejala' => 'G08',
                 'nama_gejala' => 'Kepala pusing',
                 'deskripsi' => 'Penderita merasa pusing atau pening.',
             ],
             [
-                'kode_gejala' => 'G07',
+                'kode_gejala' => 'G09',
                 'nama_gejala' => 'Mengalami gangguan mental (menurunnya tingkat kesadaran)',
                 'deskripsi' => 'Penderita mengalami penurunan kesadaran atau gangguan mental lainnya.',
             ],

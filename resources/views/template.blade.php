@@ -62,9 +62,9 @@
                 </div>
 
                 <!-- Nav Item - User -->
-                <li class="nav-item">
-                    {{-- <a class="nav-link" href="{{ route('user.index') }}"> --}}
-                    <a class="nav-link" href="#">
+                <li class="nav-item {{ (request()->is('user*')) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('user.index') }}">
+                    {{-- <a class="nav-link" href="#"> --}}
                         <i class="fas fa-user"></i>
                         <span>User</span>
                     </a>
@@ -99,6 +99,15 @@
                     </a>
                 </li>
 
+                <!-- Nav Item - Pertanyaan -->
+                <li class="nav-item" {{ (request()->is('pertanyaan*')) ? 'active' : '' }}>
+                    <a class="nav-link" href="{{route('pertanyaan.index')}}">
+                        <i class="fas fa-question"></i>
+                        <span>Pertanyaan</span>
+                    </a>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
                 <!-- Nav Item - Diagnosa -->
                 <li class="nav-item {{ request()->is('diagnosa*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{route('diagnosa.index')}}">
@@ -107,7 +116,7 @@
                     </a>
                 </li>
 
-
+            
                 
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
@@ -199,6 +208,23 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">@yield('pageHeading')</h1>
+                    @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @endif
+                    @if(session('error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session('error') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+            
                     @yield('content')
                     
 
