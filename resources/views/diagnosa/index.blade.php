@@ -24,7 +24,7 @@
                 <li>Setelah menjawab semua pertanyaan, sistem akan memberikan hasil diagnosa berdasarkan informasi yang Anda berikan.</li>
                 <li>Silakan baca hasil diagnosa dengan cermat. Jika Anda memiliki pertanyaan atau membutuhkan saran lebih lanjut, segera hubungi tenaga medis.</li>
             </ol>
-            <a href="{{route('diagnosa.proses', ['urutan' => 1])}}" class="btn btn-primary">Mulai Diagnosa</a>
+            <a href="{{route('diagnosa.proses')}}" class="btn btn-primary">Mulai Diagnosa</a>
         </div>
     </div>
 @endsection

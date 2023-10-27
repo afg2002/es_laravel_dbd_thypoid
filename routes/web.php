@@ -36,6 +36,9 @@ Route::resource('aturan', AturanController::class);
 Route::resource('pertanyaan', PertanyaanController::class);
 
 Route::get('/diagnosa', [DiagnosaController::class,'index'])->name('diagnosa.index');
-Route::get('/diagnosa/proses/{urutan}', [DiagnosaController::class,'proses'])->name('diagnosa.proses');
+Route::get('/diagnosa/proses', [DiagnosaController::class,'proses'])->name('diagnosa.proses');
+Route::get('/diagnosa/pertanyaan/{urutan}', [DiagnosaController::class,'diagnosa'])->name('diagnosa.pertanyaan');
+Route::post('/diagnosa/pertanyaan/{urutan}', [DiagnosaController::class,'diagnosa'])->name('diagnosa.pertanyaan');
+Route::post('/diagnosa/handle-response/{urutan}', [DiagnosaController::class, 'handleResponse'])->name('diagnosa.handleResponse');
 
 
