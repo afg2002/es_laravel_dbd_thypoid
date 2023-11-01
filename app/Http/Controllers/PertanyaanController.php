@@ -93,7 +93,7 @@ class PertanyaanController extends Controller
             'pilihan_jawaban' => 'required|array',
         ]);
     
-        $pertanyaan = Pertanyaan::where('kode_pertanyaan', $kode_pertanyaan)->firstOrFail();
+        $pertanyaan = Pertanyaan::where('kode_pertanyaan', $kode_pertanyaan)->first();
     
         $pertanyaan->update([
             'urutan' => $request->urutan,

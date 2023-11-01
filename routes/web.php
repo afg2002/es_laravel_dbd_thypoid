@@ -39,6 +39,6 @@ Route::get('/diagnosa', [DiagnosaController::class,'index'])->name('diagnosa.ind
 Route::get('/diagnosa/proses', [DiagnosaController::class,'proses'])->name('diagnosa.proses');
 Route::get('/diagnosa/pertanyaan/{urutan}', [DiagnosaController::class,'diagnosa'])->name('diagnosa.pertanyaan');
 Route::post('/diagnosa/pertanyaan/{urutan}', [DiagnosaController::class,'diagnosa'])->name('diagnosa.pertanyaan');
-Route::post('/diagnosa/handle-response/{urutan}', [DiagnosaController::class, 'handleResponse'])->name('diagnosa.handleResponse');
+Route::post('/diagnosa/response/{urutan}', [DiagnosaController::class, 'handleResponse'])->name('diagnosa.handleResponse');
 
 
