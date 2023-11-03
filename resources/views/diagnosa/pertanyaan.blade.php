@@ -9,8 +9,10 @@
 @endsection
 
 @section('content')
-    {{var_dump(session()->get('QA'))}} 
-    {{var_dump(session()->get('currentQA'))}} 
+    {{-- {{ dd(session()->get('dataQA')["QA".$urutan][0] ?? null) }} --}}
+    {{-- {{ dd(session()->get('dataQA')?? null) }} --}}
+
+    {{-- {{var_dump(session()->get('currentQA'))}}  --}}
     <div class="mb-5">
         Ini adalah pertanyaan ke {{$urutan}} dari {{$totalPertanyaan}}
     </div>
@@ -24,33 +26,50 @@
                 <h4 class="card-title">{{$pertanyaan->pertanyaan}}</h4>
             </div>
         </div>
-    
-        @foreach($gejala as $item)
-            <div class="card mb-3 mt-2">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $item->nama_gejala }}&nbsp;<span style="color:red">*</span></label></h5>
-                    
-                    <hr class="my-2"> <!-- Add this line for the separator -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gejala_{{ $item->kode_gejala }}" id="ya_{{ $item->kode_gejala }}" value="ya">
-                        <label class="form-check-label" for="ya_{{ $item->kode_gejala }}">
-                            Ya
-                        </label>
-                    </div>
-    
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gejala_{{ $item->kode_gejala }}" id="tidak_{{ $item->kode_gejala }}" value="tidak">
-                        <label class="form-check-label" for="tidak_{{ $item->kode_gejala }}">
-                            Tidak
-                        </label>
-                    </div>
-    
-                    @error('gejala_' . $item->kode_gejala)
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
+
+        @php
+    $dataQA = session()->get('dataQA.QA'.$urutan);
+    $getQA = null;
+    if ($dataQA && is_array($dataQA) && isset($dataQA)) {
+        $getQA = $dataQA;
+    }
+@endphp
+
+@foreach($gejala as $item)
+    <div class="card mb-3 mt-2">
+        <div class="card-body">
+            <h5 class="card-title">{{ $item->nama_gejala }}&nbsp;<span style="color:red">*</span></h5>
+            
+            <hr class="my-2"> <!-- Add this line for the separator -->
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gejala_{{ $item->kode_gejala }}" id="ya_{{ $item->kode_gejala }}" value="ya" 
+                @if ($getQA && $getQA["gejala_".$item->kode_gejala] == 'ya')
+                    checked
+                @endif
+                >
+                <label class="form-check-label" for="ya_{{ $item->kode_gejala }}">
+                    Ya
+                </label>
             </div>
-        @endforeach
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gejala_{{ $item->kode_gejala }}" id="tidak_{{ $item->kode_gejala }}" value="tidak" 
+                @if ($getQA && $getQA["gejala_".$item->kode_gejala] == 'tidak')
+                    checked
+                @endif
+                >
+                <label class="form-check-label" for="tidak_{{ $item->kode_gejala }}">
+                    Tidak
+                </label>
+            </div>
+
+            @error('gejala_' . $item->kode_gejala)
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
+@endforeach
+
     
 
         {{-- @foreach($gejala as $item)
