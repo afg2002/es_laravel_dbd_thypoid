@@ -33,6 +33,7 @@ class DiagnosaController extends Controller
                 }
                 return redirect()->route('diagnosa.pertanyaan', ['urutan' => 1]);
             }
+            return redirect()->route('diagnosa.pertanyaan', ['urutan' => 1]);
         }
 
         
