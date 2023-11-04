@@ -8,7 +8,7 @@ Aplikasi ini adalah sebuah sistem pakar yang dikembangkan menggunakan Laravel un
 
 - Diagnosa DBD dan Thypoid berdasarkan gejala-gejala yang diberikan.
 - Langkah-langkah yang jelas untuk membantu pengguna dalam melakukan diagnosa.
-- Penyimpanan riwayat diagnosa untuk referensi mendatang.
+- Penyimpanan riwayat diagnosa untuk referensi mendatang. (on progress)
 - Desain antarmuka yang intuitif dan ramah pengguna.
 
 ## Cara Penggunaan
