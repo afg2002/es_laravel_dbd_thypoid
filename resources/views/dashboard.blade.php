@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+
 <div class="row">
     <!-- User Card -->
     <div class="col-xl-3 col-md-6 mb-4">
@@ -43,7 +44,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Gejala Card -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100 py-2">
@@ -60,7 +61,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Aturan Card -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-warning shadow h-100 py-2">
@@ -78,5 +79,13 @@
         </div>
     </div>
 
+</div>
+
+<div class="text-center my-4">
+    <h5>Selamat datang di Aplikasi Sistem Pakar Diagnosa Penyakit DBD dan Thypoid</h5>
+    <p>
+        Aplikasi ini didesain untuk membantu Anda dalam melakukan diagnosa penyakit Demam Berdarah (DBD) dan Thypoid berdasarkan gejala-gejala yang Anda alami. 
+        Dengan menggunakan metode Forward Chaining, aplikasi akan memberikan Anda hasil diagnosa berdasarkan informasi yang Anda berikan. 
+    </p>
 </div>
 @endsection

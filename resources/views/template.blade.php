@@ -37,11 +37,11 @@
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('dashboard')}}">
-                    <div class="sidebar-brand-icon rotate-n-15">
-                        <i class="fas fa-laugh-wink"></i>
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
+                    <div class="sidebar-brand-icon ">
+                        <img src="{{ asset('template/img/logo.jpg') }}" class="rounded-circle" width="50" height="50"> <!-- Sesuaikan ukuran gambar di sini -->
                     </div>
-                    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                    <div class="sidebar-brand-text mx-3">ES DBD & THYPOID</div>
                 </a>
 
                 <!-- Divider -->
@@ -53,6 +53,7 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
+
 
 
                 <!-- Divider -->
