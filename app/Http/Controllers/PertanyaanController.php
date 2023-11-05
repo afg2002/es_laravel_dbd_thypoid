@@ -31,7 +31,6 @@ class PertanyaanController extends Controller
      */
     public function store(Request $request)
 {
-    // Generate kode pertanyaan
     $lastKode = Pertanyaan::orderBy('kode_pertanyaan', 'desc')->first();
 
     if($lastKode) {
@@ -45,7 +44,7 @@ class PertanyaanController extends Controller
 
     try {
         $request->validate([
-            'urutan' => 'required|numeric',
+            'urutan' => 'required|numeric|unique:pertanyaan,urutan',
             'pertanyaan' => 'required',
             'pilihan_jawaban' => 'required|array',
         ]);
@@ -57,9 +56,11 @@ class PertanyaanController extends Controller
             'pilihan_jawaban' => implode(',', $request->pilihan_jawaban),
         ]);
 
-        return redirect()->route('pertanyaan.index')->with('success', 'Pertanyaan berhasil ditambahkan.');
+        return redirect()
+            ->route('pertanyaan.index')
+            ->with('success', 'Pertanyaan berhasil ditambahkan.');
     } catch (\Exception $e) {
-        return redirect()->route('pertanyaan.index')->with('error', $e->getMessage());
+        return redirect()->back()->with('error', $e->getMessage());
     }
 }
 
@@ -72,9 +73,7 @@ class PertanyaanController extends Controller
         
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit($kode_pertanyaan)
     {
         $pertanyaan = Pertanyaan::where('kode_pertanyaan', $kode_pertanyaan)->firstOrFail();
@@ -87,21 +86,26 @@ class PertanyaanController extends Controller
      */
     public function update(Request $request, $kode_pertanyaan)
     {
-        $request->validate([
-            'urutan' => 'required',
-            'pertanyaan' => 'required',
-            'pilihan_jawaban' => 'required|array',
-        ]);
-    
-        $pertanyaan = Pertanyaan::where('kode_pertanyaan', $kode_pertanyaan)->first();
-    
-        $pertanyaan->update([
-            'urutan' => $request->urutan,
-            'pertanyaan' => $request->pertanyaan,
-            'pilihan_jawaban' => implode(',', $request->pilihan_jawaban), // Menggabungkan pilihan jawaban menjadi satu string
-        ]);
-    
-        return redirect()->route('pertanyaan.index')->with('success', 'Pertanyaan berhasil diperbarui.');
+        try{
+            $request->validate([
+                'urutan' => 'required|numeric|unique:pertanyaan,urutan',
+                'pertanyaan' => 'required',
+                'pilihan_jawaban' => 'required|array',
+            ]);
+        
+            $pertanyaan = Pertanyaan::where('kode_pertanyaan', $kode_pertanyaan)->first();
+        
+            $pertanyaan->update([
+                'urutan' => $request->urutan,
+                'pertanyaan' => $request->pertanyaan,
+                'pilihan_jawaban' => implode(',', $request->pilihan_jawaban), // Menggabungkan pilihan jawaban menjadi satu string
+            ]);
+        
+            return redirect()->route('pertanyaan.index')->with('success', 'Pertanyaan berhasil diperbarui.');
+        }
+        catch(\Exception $e){
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     /**

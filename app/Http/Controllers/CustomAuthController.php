@@ -28,7 +28,7 @@ class CustomAuthController extends Controller
         if(Auth::attempt($credentials)){
             return redirect()->intended("dashboard")->withSuccess("Berhasil Login");
         }
-        return redirect()->back()->withErrors(["Login gagal"]);
+        return redirect()->back()->with('error',"Username atau password salah.");
 }
     public function dashboard()
     {
@@ -42,7 +42,7 @@ class CustomAuthController extends Controller
             
         }
   
-        return redirect()->route('login.form')->withSuccess('You are not allowed to access');
+        return redirect()->route('login.form')->with('error','You are not allowed to access');
     }
     
     public function signOut() {
@@ -50,5 +50,29 @@ class CustomAuthController extends Controller
         Auth::logout();
   
         return redirect()->route('login.form');
+    }
+
+    public function profile(){
+        $user = Auth::user();
+        return view('profile', compact('user'));
+    }
+
+    public function ubahPassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = Auth::user();
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return redirect()->back()->with('error', 'Kata sandi saat ini tidak cocok.');
+        }
+
+        $user->password = bcrypt($request->new_password);
+        $user->save();
+
+        return redirect()->back()->with('success', 'Kata sandi berhasil diubah.');
     }
 }
