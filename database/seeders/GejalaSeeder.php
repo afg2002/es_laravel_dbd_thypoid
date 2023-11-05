@@ -106,6 +106,11 @@ class GejalaSeeder extends Seeder
                 'nama_gejala' => 'Aglutinin O dan Aglutinin H Positif',
                 'deskripsi' => 'Hasil tes aglutinin O dan aglutinin H pada penderita positif, menunjukkan adanya antibodi terhadap virus dengue.',
             ],
+            [
+                'kode_gejala' => 'L03',
+                'nama_gejala' => 'Peningkatan Hematokrit',
+                'deskripsi' => 'Tingginya kadar hematokrit dapat disebabkan oleh kondisi-kondisi berikut: Dehidrasi: Ketika tubuh kehilangan cairan secara berlebihan, misalnya melalui keringat, muntah, atau diare, hal ini dapat menyebabkan peningkatan kadar hematokrit.',
+            ],
         ];
 
         Gejala::insert($data);
