@@ -24,6 +24,7 @@ Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashb
 Route::get('/', [CustomAuthController::class, 'index'])->name('login.form');
 Route::post('/login', [CustomAuthController::class, 'login'])->name('login'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+Route::get('/user/profile', [CustomAuthController::class, 'profile'])->name('profile');
 
 
 
