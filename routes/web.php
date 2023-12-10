@@ -26,6 +26,9 @@ Route::post('/login', [CustomAuthController::class, 'login'])->name('login');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 Route::get('/user/profile', [CustomAuthController::class, 'profile'])->name('profile');
 
+Route::post('/user/profile/password', [UserController::class, 'ubahPassword'])->name('profil.ubahPassword');
+Route::post('/user/profile/name', [UserController::class, 'ubahNama'])->name('profil.ubahNama');
+
 
 
 Route::resource('penyakit', PenyakitController::class);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Auth;
+use Hash;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -111,4 +112,49 @@ class UserController extends Controller
         $users->delete();
         return redirect()->route("user.index")->with("success","User Berhasil di hapus");
     }
+
+    public function ubahPassword(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'current_password' => ['required', function ($attribute, $value, $fail) {
+                if (!Hash::check($value, Auth::user()->password)) {
+                    $fail('Kata sandi saat ini salah.');
+                }
+            }],
+            'new_password' => 'required|min:8|different:current_password',
+            'confirm_password' => 'required|same:new_password',
+        ]);
+
+        // Ubah kata sandi
+        $user = Auth::user();
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        // Redirect ke halaman profil
+        return redirect()->route('profile')->with("success","Kata sandi berhasil diperbarui.");
+    }
+
+    public function ubahNama(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'nama' => ['required', function ($attribute, $value, $fail) {
+                if ($value === Auth::user()->name) {
+                    $fail('Nama baru tidak boleh sama dengan nama sebelumnya.');
+                }
+            }],
+        ]);
+
+        // Ubah nama pengguna
+        $user = Auth::user();
+        $user->name = $request->nama;
+        $user->save();
+
+        // Redirect ke halaman profil
+        return redirect()->route('profile')->with('success','Nama berhasil diperbarui.');
+    }
+
+
+
 }
