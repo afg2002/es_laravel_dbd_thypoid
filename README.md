@@ -18,7 +18,7 @@ Aplikasi ini adalah sebuah sistem pakar yang dikembangkan menggunakan Laravel un
 3. Jalankan `composer install` untuk menginstal dependensi.
 4. Salin file `.env.example` menjadi `.env` dan konfigurasi koneksi database.
 5. Jalankan `php artisan key:generate` untuk menghasilkan kunci aplikasi.
-6. Jalankan migrasi database menggunakan perintah `php artisan migrate`.
+6. Jalankan migrasi database menggunakan perintah `php artisan migrate --seed`.
 7. Mulai server lokal dengan perintah `php artisan serve`.
 8. Buka aplikasi di browser Anda dan mulai diagnosa penyakit.
 
